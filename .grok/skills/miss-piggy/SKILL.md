@@ -29,7 +29,7 @@ Update this skill only when the procedure changes: what you may run, where the p
 
 ## Where it runs
 
-Project `/root/tsql-app-minimal` is a private git repository at `https://github.com/rhodelta66/tsql-app-minimal`. This procedure is `.grok/skills/miss-piggy/SKILL.md` in that repo. `/root/.grok/skills/miss-piggy` is a symlink to that directory so a session started in `/root` still loads it. Metadata database `demo_proj`. Business database `demo`. Public client `https://client.miss-piggy.tsql.app`. API `https://miss-piggy.tsql.app`, proxied to `127.0.0.1:8765`. `.env` stays untracked.
+Project `/root/tsql-app-minimal` is the private git repository `https://github.com/rhodelta66/miss-piggy`. This procedure is `.grok/skills/miss-piggy/SKILL.md` in that repo. `/root/.grok/skills/miss-piggy` is a symlink to that directory so a session started in `/root` still loads it. Metadata database `demo_proj`. Business database `demo`. Public client `https://client.miss-piggy.tsql.app`. API `https://miss-piggy.tsql.app`, proxied to `127.0.0.1:8765`. `.env` stays untracked.
 
 The API is systemd unit `tsql-app-api.service`. Do not start a second Python process. Logs: `journalctl -u tsql-app-api`. A public HTTP 502 means that unit is not accepting connections. An unauthenticated `POST /api/request` returns 401 when the process is up.
 
