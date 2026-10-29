@@ -1,0 +1,26 @@
+-- Two-database layout: demo_proj holds the framework, demo holds business data.
+USE master;
+GO
+
+IF DB_ID(N'demo') IS NOT NULL
+BEGIN
+    ALTER DATABASE demo SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+    DROP DATABASE demo;
+END
+GO
+
+IF DB_ID(N'demo_proj') IS NOT NULL
+BEGIN
+    ALTER DATABASE demo_proj SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+    DROP DATABASE demo_proj;
+END
+GO
+
+CREATE DATABASE demo;
+GO
+CREATE DATABASE demo_proj;
+GO
+
+ALTER DATABASE demo SET RECOVERY SIMPLE;
+ALTER DATABASE demo_proj SET RECOVERY SIMPLE;
+GO
