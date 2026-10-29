@@ -2,6 +2,12 @@
 
 SQL Server owns the screen. `dbo.sp_api_request` returns one JSON payload, and the browser paints it. The client does not contain the business rules.
 
+A card is a row. A button is T-SQL that reads, acts, and renders. The vocabulary stays small: a caption is `@label` on `sp_api_modal_input`, and a dropdown is that same procedure with `@type` `select`. Demo asks for a name, shows `hello` plus that name, and closes. Label is the same loop for a form. A new HTML tag does not become a new procedure.
+
+The knowledge graph in `demo_proj` keeps the map and the rules. It stores queries, invariants, and where to look. Row values, sessions, and the SQL password stay out of it.
+
+The product is this loop, the card cache, and a client that paints the next payload. Roles, tasks, reports, files, history, and seek wait until they are asked for. The full statement is in [docs/framework.md](docs/framework.md) under Plan.
+
 The live client is [https://client.miss-piggy.tsql.app](https://client.miss-piggy.tsql.app). The API is [https://miss-piggy.tsql.app](https://miss-piggy.tsql.app). Sign-in is [https://id3.tsql.app](https://id3.tsql.app). A hostname that starts with `client.` calls `https://` plus the rest of that host.
 
 The behavior, the SQL safety rules, and the plan are in [docs/framework.md](docs/framework.md). The agent procedure is [.grok/skills/miss-piggy/SKILL.md](.grok/skills/miss-piggy/SKILL.md).
